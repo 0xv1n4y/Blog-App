@@ -3,10 +3,9 @@ const app=express()
 const mongoose=require('mongoose')
 require('dotenv').config()
 const dataRoutes=require("./routes/post")
-
+const Data = require("./models/data")
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 
 
 const PORT=process.env.PORT
@@ -25,13 +24,9 @@ mongoose.connect(process.env.MONGO_URL)
 
 app.use("/api/post",dataRoutes)  //Route End point
 
+app.use('/uploads', express.static('uploads'));
 
 
 
-
-
-app.get('/',(req,res)=>{
-    res.send("Hello World")
-})
 app.listen(PORT,()=>console.log(`Server is Running in Port${PORT}`))
 
