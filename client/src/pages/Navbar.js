@@ -9,9 +9,9 @@ import Navbar from 'react-bootstrap/Navbar';
 function Navbars({search,setSearch}) {
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg"  style={{backgroundColor:"transparent"}} className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand style={{fontSize:30,fontWeight:900}}>Blogs</Navbar.Brand>
+        <Navbar.Brand style={{fontSize:30,fontWeight:900,padding:"10px"}}>Blogs</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav style={{fontSize:18,fontWeight:500}}>

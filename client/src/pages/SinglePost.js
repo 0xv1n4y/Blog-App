@@ -1,17 +1,18 @@
 
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
+import { FaEdit } from 'react-icons/fa';
 
 import { useParams } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+
 
 
 
 const SinglePost = () => {
     const {id}=useParams()
     const [post,setPost]=useState({})
+
+
     
     useEffect(()=>{
         axios.get(`http://localhost:5200/api/post/${id}`).then((response)=>{
@@ -22,38 +23,32 @@ const SinglePost = () => {
         })
 
     },[id])
-    console.log(post)
+    
+    
+
 
 
   return (
-    <div>
-        <Card className="custom-card">
-             
-             <Card.Body>
-              
-              <Card.Title key={post._id}>{post.title}
-              
-              </Card.Title>
-              <Card.Subtitle>
-                {post.date}
-              </Card.Subtitle>
-            
-               <Card.Text>
-               
-               
-                <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
-                 
-               </Card.Text>
-               
-               {/* <Button variant="danger" onClick={()=>handleDelete(post._id)}>Delete</Button>{' '} */}
-               
-               <Button  variant="success"> <NavLink  to={`/update/${post._id}`} className="nav-link" >Edit</NavLink> </Button>
+    <div className='html'>
+    <div className='main'>
 
-               
-               
-     
-             </Card.Body>
-           </Card>
+<div class="blog_post">
+  <div class="img_pod1">
+    <img className='img1' src={`http://localhost:5200/${post.image}`} alt=''/>
+  </div>
+  <div class="container_copy1">
+    <h3 className='h3' style={{color:"#999",fontSize: "1.25rem",}}>{new Date(post.createdAt).toDateString()}</h3>
+    <h1  className='h1' key={post._id}>{post.title}</h1>
+    <p className='p'> <div dangerouslySetInnerHTML={{ __html: post.content }}></div></p>
+    <a class="btn_primary1" href={`/update/${post._id}`} ><FaEdit/> Edit</a>
+  </div>
+  
+</div>
+</div>
+
+
+
+
       
     </div>
   );

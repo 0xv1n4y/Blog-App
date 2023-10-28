@@ -1,7 +1,7 @@
 
-import Home from './pages/Home';
+import Home from './pages/home/Home';
 import Navbars from './pages/Navbar';
-import Update from './pages/Update';
+import Update from './pages/update/Update'
 import SinglePost from './pages/SinglePost';
 import { Routes,Route } from "react-router-dom";
 import axios from 'axios';
@@ -31,7 +31,7 @@ const handleDelete=async(id)=>{
         <Route path='/' element={<Home search={search} handleDelete={handleDelete} products={products} setProducts={setProducts}  />}/>
         <Route path='/write' element={<Write/>}/>
         <Route path='/update/:id' element={<Update />}/>
-        <Route path='/single/:id' element={<SinglePost handleDelete={handleDelete} />}/>
+        <Route path='/single/:id' element={<SinglePost />}/>
       </Routes>
      
     </div>
